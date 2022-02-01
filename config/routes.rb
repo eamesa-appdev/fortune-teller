@@ -2,8 +2,16 @@ Rails.application.routes.draw do
   # PART 1: EACH IN ERB
   # ===================
 
-  get("/lottery/lucky", { :controller => "numbers", :action => "winners" })
   get("/", { :controller => "numbers", :action => "winners" })
+  get("/lottery/lucky", { :controller => "numbers", :action => "winners" })
+  get("/lottery/unlucky", { :controller => "numbers", :action => "losers" })
+
+  get("/roll/1/6", {:controller => "application", :action => "one_d_six"})
+  get("/roll/2/6", {:controller => "application", :action => "two_d_six"})
+  get("/roll/3/6", {:controller => "application", :action => "three_d_six"})
+  get("/roll/4/6", {:controller => "application", :action => "four_d_six"})
+  get("/roll/5/6", {:controller => "application", :action => "five_d_six"})
+  get("/roll/6/6", {:controller => "application", :action => "six_d_six"})
 
   # Let users visit URLs:
 
@@ -15,9 +23,9 @@ Rails.application.routes.draw do
   # Uncomment each route below ONE AT A TIME and debug.
   # Do NOT uncomment more than one at a time, or you'll be dealing with multiple syntax errors at once.
 
-  # get("/zodiacs/aries", { :controller =>  fire, action =>  "ram" })
-  # get("/zodiacs/leo", { :controller => "fire", :action => "lion" })
-  # get("/zodiacs/sagittarius" { :controller => "fire", :action => "archer" })
+  get("/zodiacs/aries", { :controller => "fire", :action =>  "ram" })
+  get("/zodiacs/leo", { :controller => "fire", :action => "lion" })
+  get("/zodiacs/sagittarius" { :controller => "fire", :action => "archer" })
   
   # get("/zodiacs/taurus", { :controller, "earth", :action, "bull" })
   # get("/zodiacs/virgo", { :controller => "earth", :action => "maiden" })
@@ -56,8 +64,12 @@ Rails.application.routes.draw do
   # /roll/2/4
   # /roll/3/4
   # /roll/4/4
+
   # /roll/1/8
   # /roll/2/8
+  # /roll/3/8
+
+
   # /roll/1/10
   # /roll/2/10
   # /roll/1/20
